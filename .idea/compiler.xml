@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="2560" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="portfolio-backend.portfolio-api" options="-parameters" />
+      <module name="portfolio-backend.portfolio-api.main" options="-parameters" />
+      <module name="portfolio-backend.portfolio-api.test" options="-parameters" />
+    </option>
+  </component>
+</project>
