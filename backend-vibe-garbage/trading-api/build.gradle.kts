@@ -2,10 +2,10 @@ plugins {
     kotlin("jvm")
     kotlin("plugin.spring")
     kotlin("plugin.jpa")
-    id("io.spring.dependency-management")
 }
 
 dependencies {
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.4.1"))
     implementation(project(":portfolio-domain"))
     implementation(project(":trading-domain"))
     
@@ -19,10 +19,4 @@ dependencies {
     
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.mockk:mockk:1.13.9")
-}
-
-dependencyManagement {
-    imports {
-        mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
-    }
 }

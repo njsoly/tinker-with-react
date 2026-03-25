@@ -3,10 +3,10 @@ plugins {
     kotlin("plugin.spring")
     kotlin("plugin.jpa")
     id("org.springframework.boot")
-    id("io.spring.dependency-management")
 }
 
 dependencies {
+    implementation(platform("org.springframework.boot:spring-boot-dependencies:3.4.1"))
     implementation(project(":portfolio-domain"))
     implementation(project(":trading-domain"))
     implementation(project(":trading-api"))
