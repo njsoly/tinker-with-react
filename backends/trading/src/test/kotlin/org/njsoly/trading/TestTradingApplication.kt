@@ -1,9 +1,9 @@
-package org.njsoly.stocks
+package org.njsoly.trading
 
 import org.springframework.boot.fromApplication
 import org.springframework.boot.with
 
 
 fun main(args: Array<String>) {
-    fromApplication<StocksApplication>().with(TestcontainersConfiguration::class).run(*args)
+    fromApplication<TradingApplication>().with(TestcontainersConfiguration::class).run(*args)
 }

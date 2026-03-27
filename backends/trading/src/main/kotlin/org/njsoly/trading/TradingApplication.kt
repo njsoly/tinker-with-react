@@ -1,11 +1,11 @@
-package org.njsoly.stocks
+package org.njsoly.trading
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class StocksApplication
+class TradingApplication
 
 fun main(args: Array<String>) {
-    runApplication<StocksApplication>(*args)
+    runApplication<TradingApplication>(*args)
 }

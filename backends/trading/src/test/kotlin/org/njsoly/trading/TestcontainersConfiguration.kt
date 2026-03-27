@@ -1,4 +1,4 @@
-package org.njsoly.stocks
+package org.njsoly.trading
 
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection

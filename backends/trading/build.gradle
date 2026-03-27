@@ -7,7 +7,7 @@ plugins {
 
 group = 'org.njsoly'
 version = '0.0.1-SNAPSHOT'
-description = 'stocks'
+description = 'trading'
 
 java {
     toolchain {
