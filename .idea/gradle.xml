@@ -16,6 +16,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/backends/resistors" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/backends/resistors" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/backends/trading" />
         <option name="modules">
           <set>
