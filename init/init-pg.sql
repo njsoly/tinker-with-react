@@ -1,3 +1,2 @@
-CREATE DATABASE tinker;
 CREATE DATABASE resistors;
 CREATE DATABASE trading;

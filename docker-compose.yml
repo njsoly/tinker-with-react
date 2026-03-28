@@ -5,6 +5,8 @@ services:
   # Example service template (uncomment when needed):
   postgres:
     image: postgres:17-alpine
+    container_name: postgresql
+    restart: unless-stopped
     environment:
       POSTGRES_DB: tinker
       POSTGRES_USER: dev
@@ -13,7 +15,7 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./init/init-pg.sql:/docker-entrypoint-initdb.d/init-pg.sql
+      - ./init/init-pg.sql:/docker-entrypoint-initdb.d/init-pg.sql:z
 
 volumes:
   postgres_data:
