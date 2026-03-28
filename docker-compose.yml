@@ -3,16 +3,17 @@ services:
   # Spring Boot Docker Compose support will manage these during development
   
   # Example service template (uncomment when needed):
-  # postgres:
-  #   image: postgres:17-alpine
-  #   environment:
-  #     POSTGRES_DB: resistors
-  #     POSTGRES_USER: dev
-  #     POSTGRES_PASSWORD: dev
-  #   ports:
-  #     - "5432:5432"
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: tinker
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init/init-pg.sql:/docker-entrypoint-initdb.d/init-pg.sql
 
-# volumes:
-#   postgres_data:
+volumes:
+  postgres_data:
