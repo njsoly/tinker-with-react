@@ -2,8 +2,11 @@ package org.njsoly.tinker.api
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.njsoly.tinker.resistors.core.ResistorEvaluationService
 
 class ResistorControllerTest {
+
+    private val resistorEvaluationService = ResistorEvaluationService()
 
     @Test
     fun `getOhmSymbol returns correct symbol`() {
