@@ -1,4 +1,4 @@
-package org.njsoly.tinker.api
+package org.njsoly.tinker.resistors.api
 
 import org.njsoly.tinker.resistors.core.ResistorEvaluationService
 import org.njsoly.tinker.resistors.domain.ResistorBandPattern

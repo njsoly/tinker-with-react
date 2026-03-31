@@ -1,4 +1,4 @@
-package org.njsoly.tinker.api
+package org.njsoly.tinker.resistors.api
 
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test

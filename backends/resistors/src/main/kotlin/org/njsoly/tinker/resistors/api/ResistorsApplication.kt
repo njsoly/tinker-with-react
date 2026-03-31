@@ -1,9 +1,9 @@
-package org.njsoly.tinker.resistors.core
+package org.njsoly.tinker.resistors.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["org.njsoly.tinker.resistors"])
 class ResistorsApplication
 
 fun main(args: Array<String>) {
