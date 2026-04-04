@@ -36,5 +36,7 @@ class ResistorEvaluationService {
         if (resistorBandPattern.band1 in listOf(ResistorColor.Gold, ResistorColor.Silver)) {
             throw IllegalArgumentException("2nd band cannot be Gold or Silver")
         }
+
+        // TODO there's some other colors that don't go in certain places
     }
 }

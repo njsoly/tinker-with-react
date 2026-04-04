@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test
 
 class ResistorBandPatternTest {
 
-    val pattern0 = ResistorBandPattern(ResistorColor.RED, ResistorColor.BLACK, ResistorColor.BROWN)
+    val pattern0 = ResistorBandPattern(ResistorColor.Red, ResistorColor.Black, ResistorColor.Brown)
 
     @Test
     fun `getListOfColors works`() {
