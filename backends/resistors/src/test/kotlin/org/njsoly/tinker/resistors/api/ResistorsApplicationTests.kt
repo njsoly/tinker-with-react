@@ -1,8 +1,7 @@
-package org.njsoly.tinker.resistors.core
+package org.njsoly.tinker.resistors.api
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertNotNull
-import org.njsoly.tinker.resistors.api.ResistorsApplication
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
