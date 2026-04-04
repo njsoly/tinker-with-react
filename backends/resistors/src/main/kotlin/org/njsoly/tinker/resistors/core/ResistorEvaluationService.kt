@@ -28,7 +28,7 @@ class ResistorEvaluationService {
      *
      * @param resistorBandPattern the color band pattern of the resistor
      */
-    private fun validatePattern(resistorBandPattern: ResistorBandPattern){
+    internal fun validatePattern(resistorBandPattern: ResistorBandPattern){
         println("Validating pattern: $resistorBandPattern")
 
         if (resistorBandPattern.band0 in listOf(ResistorColor.Gold, ResistorColor.Silver)) {
