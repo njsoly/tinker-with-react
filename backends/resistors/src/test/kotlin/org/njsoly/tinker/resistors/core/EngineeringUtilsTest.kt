@@ -20,6 +20,4 @@ class EngineeringUtilsTest {
     fun `findBestPrefix returns milli prefix for point-999`() {
         assertEquals(MetricPrefixes.MILLI, EngineeringUtils.findBestPrefix(BigDecimal(0.999)))
     }
-
-
 }

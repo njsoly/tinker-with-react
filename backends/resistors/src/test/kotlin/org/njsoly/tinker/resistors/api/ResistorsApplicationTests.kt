@@ -12,5 +12,4 @@ class ResistorsApplicationTests {
         val app = ResistorsApplication()
         assertNotNull(app)
     }
-
 }

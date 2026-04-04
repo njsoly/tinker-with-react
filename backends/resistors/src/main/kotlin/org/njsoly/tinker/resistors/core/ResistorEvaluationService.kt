@@ -15,7 +15,7 @@ class ResistorEvaluationService {
         val significand = (10 * resistorBandPattern.band0.significandValue) + resistorBandPattern.band1.significandValue
 
         return ResistorDetails(
-            value = significand.toDouble().pow(resistorBandPattern.band2.magnitudeValue),
+            value = significand.toDouble().pow(resistorBandPattern.band2.magnitudeMultiplier),
             engineeringNotation = "",
             bandPattern = resistorBandPattern
         )
