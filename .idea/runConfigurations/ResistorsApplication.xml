@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ResistorsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ACTIVE_PROFILES" value="local" />
+    <module name="resistors.main" />
+    <option name="PROGRAM_PARAMETERS" value="spring.profiles.active=local" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.njsoly.tinker.resistors.api.ResistorsApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

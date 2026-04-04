@@ -4,7 +4,7 @@ import org.njsoly.tinker.resistors.domain.ResistorBandPattern
 import org.njsoly.tinker.resistors.domain.ResistorColor
 import org.njsoly.tinker.resistors.domain.ResistorDetails
 import org.springframework.stereotype.Service
-import kotlin.math.pow
+import java.math.BigDecimal
 
 @Service
 class ResistorEvaluationService {
@@ -13,9 +13,10 @@ class ResistorEvaluationService {
         validatePattern(resistorBandPattern)
 
         val significand = (10 * resistorBandPattern.band0.significandValue) + resistorBandPattern.band1.significandValue
+        // TODO handle 5 band resistors
 
         return ResistorDetails(
-            value = significand.toDouble().pow(resistorBandPattern.band2.magnitudeMultiplier),
+            value = BigDecimal(significand) * (resistorBandPattern.band2.magnitudeMultiplier),
             engineeringNotation = "",
             bandPattern = resistorBandPattern
         )
