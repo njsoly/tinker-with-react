@@ -24,7 +24,7 @@ class ResistorController(private val resistorEvaluationService: ResistorEvaluati
 
     @PostMapping("/evaluate")
     fun getResistanceValue(@RequestBody resistorBandPattern: ResistorBandPattern): ResistorDetails {
-        return resistorEvaluationService.evaluateResistor(resistorBandPattern)
+        return resistorEvaluationService.evaluateResistance(resistorBandPattern)
     }
 
 }
