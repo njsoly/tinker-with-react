@@ -4,6 +4,5 @@ class ResistorConstants {
 
     companion object {
         val OHM_SYMBOLS = listOf("\u03A9", "\u2126")
-
     }
 }
