@@ -3,8 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-import { ResistorDisplay } from "./components/ResistorDisplay.tsx";
 import { ResistorColor } from "./types";
+import { ResistorFun } from "./components/ResistorFun.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,9 +17,9 @@ function App() {
           <img src={reactLogo} className="framework" alt="React logo"/>
           <img src={viteLogo} className="vite" alt="Vite logo"/>
         </div>
-        <ResistorDisplay bands={[
+        <ResistorFun bands={[
           ResistorColor.Brown,
-          ResistorColor.Black,
+          ResistorColor.Green,
           ResistorColor.Red,
           ResistorColor.Gold
         ]}/>
