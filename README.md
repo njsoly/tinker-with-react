@@ -16,7 +16,7 @@ A Spring Boot backend for resistors.
 
 A Spring Boot backend for trading (backburner).
 
-### [tinker-react](tinker-react/README.md)
+### [tinker-react](frontends/tinker-react/README.md)
 
 The React frontend.
 
