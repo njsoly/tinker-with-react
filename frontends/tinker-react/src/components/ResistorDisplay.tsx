@@ -1,5 +1,5 @@
 import { ResistorColor } from '../types';
-import './ResistorDisplay.css';
+import './ResistorDisplay.scss';
 
 interface ResistorDisplayProps {
   bands: ResistorColor[];
