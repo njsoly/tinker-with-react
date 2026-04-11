@@ -174,9 +174,6 @@ if [ "$SKIP_BUILD" = false ]; then
     run_build
 fi
 
-run_docker
-run_services
-
 if [ "$RUN_TESTS" = true ]; then
     echo ""
     echo "═══════════════════════════════════════════════════════════════"
@@ -185,6 +182,9 @@ if [ "$RUN_TESTS" = true ]; then
     echo ""
     "$PROJECT_ROOT/test.py"
 fi
+
+run_docker
+run_services
 
 echo "═══════════════════════════════════════════════════════════════"
 echo "  Project is ready! Happy coding! 🚀"
