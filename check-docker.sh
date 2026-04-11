@@ -1,10 +1,47 @@
 #!/bin/bash
 set -e
 
-#####################################################
-# This file is pure Claude, with my verbal guidance
+################################################################################
+# Docker/Podman Daemon Detection and Startup Script
+# by Claude with my guidance
+################################################################################
 #
-#####################################################
+# PURPOSE:
+#   This script intelligently detects whether the system is using Docker or
+#   Podman (including when Podman masquerades as 'docker' via symlink or
+#   docker-compose compatibility), and ensures the appropriate container
+#   daemon is running before proceeding with container operations.
+#
+# PROBLEM IT SOLVES:
+#   On systems where Podman is installed as a Docker replacement, the daemon
+#   may not be automatically running (particularly the podman.socket systemd
+#   service). This script automates the detection and startup process, removing
+#   the manual step of starting podman.socket before running docker/docker-compose
+#   commands.
+#
+# FUNCTIONALITY:
+#   1. Detects if 'docker' command points to Podman (via symlink or version string)
+#   2. For Podman setups:
+#      - Checks if podman daemon is accessible
+#      - Starts podman.socket via systemctl if needed
+#      - Waits with retry logic (up to 10 attempts) for daemon to be ready
+#   3. For regular Docker setups:
+#      - Verifies Docker daemon is running
+#      - Reports error if not accessible
+#
+# USAGE:
+#   Run this script before executing docker-compose or other container commands:
+#     ./check-docker.sh && docker-compose up
+#
+# PREREQUISITES:
+#   - Podman systems: systemctl and podman.socket service configured
+#   - Docker systems: Docker daemon must be started externally
+#
+# EXIT CODES:
+#   0 = Success (daemon is running)
+#   1 = Failure (daemon not accessible or failed to start)
+#
+################################################################################
 
 is_using_podman() {
     if command -v docker &>/dev/null; then
