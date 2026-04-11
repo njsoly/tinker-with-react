@@ -3,15 +3,6 @@ package org.njsoly.tinker.resistors.core.maths
 @Suppress("unused")
 enum class Quantifiable {
     Dimensionless,
-<<<<<<< Updated upstream
-    ElectricCurrent,
-    Length,
-    Mass,
-    PotentialDifference,
-    Resistance,
-    Temperature,
-    Time
-=======
     Acceleration,
     Amount,
     AngularAcceleration,
@@ -39,5 +30,4 @@ enum class Quantifiable {
     Time,
     Torque,
     Volume
->>>>>>> Stashed changes
 }
