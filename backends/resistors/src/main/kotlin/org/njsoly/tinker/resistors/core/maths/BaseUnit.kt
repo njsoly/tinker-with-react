@@ -22,10 +22,7 @@ enum class BaseUnit (
     OHM("Ω", "ohm", Resistance),
     AMPERE("A", "ampere", ElectricCurrent),
     VOLT("V", "volt", PotentialDifference),
-<<<<<<< Updated upstream
-=======
     COULOMB("C", "coulomb", ElectricCharge),
     WATT("W", "watt", Power),
     JOULE("J", "joule", Energy),
->>>>>>> Stashed changes
 }
