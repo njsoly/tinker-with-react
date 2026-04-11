@@ -8,3 +8,4 @@ class ResistorDetails(
     val tolerance: Double? = null,
     val bandPattern: ResistorBandPattern
 )
+

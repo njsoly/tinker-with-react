@@ -1,8 +1,8 @@
-package org.njsoly.tinker.resistors.core
+package org.njsoly.tinker.resistors.core.maths
 
 import java.math.BigDecimal
 
-enum class MetricPrefixes(val multiplier: BigDecimal, val writtenPrefix: String) {
+enum class MetricPrefix(val multiplier: BigDecimal, val shorthand: String) {
     FEMTO(BigDecimal(1E-15), "f"),
     PICO(BigDecimal(1E-12), "p"),
     NANO(BigDecimal(1E-9), "n"),
