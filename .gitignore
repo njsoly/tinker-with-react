@@ -29,3 +29,6 @@ replay_pid*
 ## Jetbrains
 .idea/compiler.xml
 material_theme_project_new.xml
+
+# Project state
+.temp/

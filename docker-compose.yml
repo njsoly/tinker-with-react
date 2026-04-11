@@ -1,11 +1,7 @@
 services:
-  # Placeholder for future services (postgres, redis, etc.)
-  # Spring Boot Docker Compose support will manage these during development
-  
-  # Example service template (uncomment when needed):
   postgres:
     image: postgres:17-alpine
-    container_name: postgresql
+    container_name: tinker-postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: tinker
@@ -16,6 +12,79 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init/init-pg.sql:/docker-entrypoint-initdb.d/init-pg.sql:z
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dev -d tinker"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  localstack:
+    image: localstack/localstack:latest
+    container_name: tinker-localstack
+    restart: unless-stopped
+    environment:
+      - SERVICES=s3,dynamodb,sqs,sns
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+    ports:
+      - "4566:4566"
+    volumes:
+      - localstack_data:/tmp/localstack
+
+  resistors:
+    build:
+      context: ./backends/resistors
+      dockerfile: Dockerfile
+    container_name: tinker-resistors
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/tinker
+      - SPRING_DATASOURCE_USERNAME=dev
+      - SPRING_DATASOURCE_PASSWORD=dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  trading:
+    build:
+      context: ./backends/trading
+      dockerfile: Dockerfile
+    container_name: tinker-trading
+    restart: unless-stopped
+    ports:
+      - "8082:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/tinker
+      - SPRING_DATASOURCE_USERNAME=dev
+      - SPRING_DATASOURCE_PASSWORD=dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  tinker-react:
+    build:
+      context: ./frontends/tinker-react
+      dockerfile: Dockerfile
+    container_name: tinker-react
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    depends_on:
+      - resistors
+      - trading
 
 volumes:
   postgres_data:
+  localstack_data:
