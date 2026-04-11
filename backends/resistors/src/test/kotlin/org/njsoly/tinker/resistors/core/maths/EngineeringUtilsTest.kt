@@ -1,7 +1,8 @@
-package org.njsoly.tinker.resistors.core
+package org.njsoly.tinker.resistors.core.maths
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.njsoly.tinker.resistors.core.maths.EngineeringUtils
 import org.njsoly.tinker.resistors.core.maths.MetricPrefix
 import java.math.BigDecimal
 

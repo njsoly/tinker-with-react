@@ -1,6 +1,5 @@
-package org.njsoly.tinker.resistors.core
+package org.njsoly.tinker.resistors.core.maths
 
-import org.njsoly.tinker.resistors.core.maths.MetricPrefix
 import java.math.BigDecimal
 
 object EngineeringUtils {
