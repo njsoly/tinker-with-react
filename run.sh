@@ -158,7 +158,7 @@ done
 
 echo ""
 echo "╔═══════════════════════════════════════════════════════════════╗"
-echo "║          tinker-with-react Development Environment           ║"
+echo "║          tinker-with-react Development Environment            ║"
 echo "╚═══════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -176,9 +176,9 @@ fi
 
 if [ "$RUN_TESTS" = true ]; then
     echo ""
-    echo "═══════════════════════════════════════════════════════════════"
-    echo "  TESTS: Running Test Suites"
-    echo "═══════════════════════════════════════════════════════════════"
+    echo "═════════════════════════════════════════════"
+    echo "          TESTS: Running Test Suites         "
+    echo "═════════════════════════════════════════════"
     echo ""
     "$PROJECT_ROOT/test.py"
 fi
@@ -186,6 +186,6 @@ fi
 run_docker
 run_services
 
-echo "═══════════════════════════════════════════════════════════════"
-echo "  Project is ready! Happy coding! 🚀"
-echo "═══════════════════════════════════════════════════════════════"
+echo "═════════════════════════════════════"
+echo "   Project is ready! Happy coding!   "
+echo "═════════════════════════════════════"

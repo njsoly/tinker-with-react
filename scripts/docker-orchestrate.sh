@@ -46,7 +46,9 @@ done
 cd "$PROJECT_ROOT"
 
 echo "→ Pulling external service images..."
-docker compose pull postgres localstack 2>/dev/null || true
+# Pull with full registry paths to avoid interactive prompts
+docker pull docker.io/postgres:17-alpine 2>/dev/null || true
+docker pull docker.io/localstack/localstack:latest 2>/dev/null || true
 
 if [ "$REBUILD" = true ]; then
     echo "→ Rebuilding all custom application containers..."
