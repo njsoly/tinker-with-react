@@ -29,6 +29,20 @@ show_help() {
     sed -n '/^# USAGE:/,/^################################################################################$/p' "$0" | sed 's/^# //;s/^#//'
 }
 
+big_echo() {
+    local message="$1"
+    local msg_len=${#message}
+    local total_width=$((msg_len + 12))
+    local border=$(printf '═%.0s' $(seq 1 $total_width))
+    local padded_msg=$(printf "%*s%s%*s" 6 "" "$message" 6 "")
+
+    echo ""
+    echo "$border"
+    echo "$padded_msg"
+    echo "$border"
+    echo ""
+}
+
 ensure_state_dir() {
     if [ ! -d "$STATE_DIR" ]; then
         mkdir -p "$STATE_DIR"
@@ -53,10 +67,7 @@ mark_bootstrap_complete() {
 }
 
 run_bootstrap() {
-    echo "═══════════════════════════════════════════════════════════════"
-    echo "  BOOTSTRAP: Checking System Prerequisites"
-    echo "═══════════════════════════════════════════════════════════════"
-    echo ""
+    big_echo "BOOTSTRAP: Checking System Prerequisites"
 
     echo "→ Checking Docker/Podman..."
     if ! "$PROJECT_ROOT/check-docker.sh"; then
@@ -71,54 +82,31 @@ run_bootstrap() {
 }
 
 run_build() {
-    echo ""
-    echo "═══════════════════════════════════════════════════════════════"
-    echo "  BUILD: Dependencies and Compilation"
-    echo "═══════════════════════════════════════════════════════════════"
-    echo ""
+    big_echo "BUILD: Dependencies and Compilation"
 
     "$PROJECT_ROOT/scripts/build.sh"
 }
 
 run_docker() {
-    echo ""
-    echo "═══════════════════════════════════════════════════════════════"
-    echo "  DOCKER: Container Management"
-    echo "═══════════════════════════════════════════════════════════════"
-    echo ""
+    big_echo "DOCKER: Container Management"
 
     if [ "$REBUILD" = true ]; then
-        "$PROJECT_ROOT/scripts/docker-orchestrate.sh" --rebuild
-    else
-        "$PROJECT_ROOT/scripts/docker-orchestrate.sh"
+        local _args="--rebuild"
     fi
+    "$PROJECT_ROOT/scripts/docker-orchestrate.sh" "${_args}"
 }
 
 run_services() {
-    echo ""
-    echo "═══════════════════════════════════════════════════════════════"
-    echo "  SERVICES: Starting Development Environment"
-    echo "═══════════════════════════════════════════════════════════════"
-    echo ""
+    big_echo "SERVICES: Starting Development Environment"
 
     docker compose up -d
 
     echo ""
     echo "✓ All services started successfully!"
-    echo ""
-    echo "═══════════════════════════════════════════════════════════════"
-    echo "  READY TO USE"
-    echo "═══════════════════════════════════════════════════════════════"
-    echo ""
+    big_echo "READY TO USE"
     echo "Services running:"
     docker compose ps
-    echo ""
-    echo "Useful commands:"
-    echo "  • View logs:        docker compose logs -f"
-    echo "  • Stop services:    docker compose down"
-    echo "  • Restart app:      ./scripts/restart-app.sh <service-name>"
-    echo "  • Run tests:        ./test.py"
-    echo ""
+
 }
 
 SKIP_BOOTSTRAP=false
@@ -164,7 +152,7 @@ echo ""
 
 if [ "$SKIP_BOOTSTRAP" = false ]; then
     if check_bootstrap_complete; then
-        echo "✓ Bootstrap previously completed (use --skip-bootstrap to suppress this check)"
+        echo "✓ Bootstrap previously completed"
     else
         run_bootstrap
     fi
@@ -175,17 +163,11 @@ if [ "$SKIP_BUILD" = false ]; then
 fi
 
 if [ "$RUN_TESTS" = true ]; then
-    echo ""
-    echo "═════════════════════════════════════════════"
-    echo "          TESTS: Running Test Suites         "
-    echo "═════════════════════════════════════════════"
-    echo ""
+    big_echo "TESTS: Running Test Suites"
     "$PROJECT_ROOT/test.py"
 fi
 
 run_docker
 run_services
 
-echo "═════════════════════════════════════"
-echo "   Project is ready! Happy coding!   "
-echo "═════════════════════════════════════"
+big_echo "Project is ready! Happy coding!"

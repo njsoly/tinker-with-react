@@ -1,6 +1,6 @@
 ---
 trigger: always_on
-description: Necessary when key changes have been 
+description: Necessary when key changes have been
 globs: 
 ---
 
@@ -43,4 +43,4 @@ For the containers we're creating out of nothing:
   - Keep an eye out for evidence of that, and be ready with helpful console output. 
 
 ## Project-wide advice
-- scripts that aren't utterly, trivially small should offer help on the command line.  They should accept `-h` and `--help`.
+- scripts that aren't utterly, trivially small should offer help on the command line.  They should accept `-h` and `--help`.  If there's only like 2 ways to call it, you can probably skip the "EXAMPLES" section.
