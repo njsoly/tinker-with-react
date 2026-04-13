@@ -90,10 +90,11 @@ run_build() {
 run_docker() {
     big_echo "DOCKER: Container Management"
 
+    local args=()
     if [ "$REBUILD" = true ]; then
-        local _args="--rebuild"
+        args=(--rebuild)
     fi
-    "$PROJECT_ROOT/scripts/docker-orchestrate.sh" "${_args}"
+    "$PROJECT_ROOT/scripts/docker-orchestrate.sh" "${args[@]}"
 }
 
 run_services() {
