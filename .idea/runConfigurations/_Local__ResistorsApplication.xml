@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[local] ResistorsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="[Local] ResistorsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="resistors.main" />
     <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=local" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="org.njsoly.tinker.resistors.api.ResistorsApplicationKt" />

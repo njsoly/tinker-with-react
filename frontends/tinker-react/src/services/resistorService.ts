@@ -1,4 +1,5 @@
 import { config } from '../config/env';
+import type { ColorInfo, BandPattern, ResistanceEvaluation } from '../types';
 
 const API_BASE_URL = config.resistorsApiUrl;
 
@@ -11,7 +12,7 @@ export const resistorService = {
     return response.text();
   },
 
-  async getColors(): Promise<any[]> {
+  async getColors(): Promise<ColorInfo[]> {
     const response = await fetch(`${API_BASE_URL}/colors`);
     if (!response.ok) {
       throw new Error(`Failed to fetch colors: ${response.statusText}`);
@@ -19,7 +20,7 @@ export const resistorService = {
     return response.json();
   },
 
-  async evaluateResistance(bandPattern: any): Promise<any> {
+  async evaluateResistance(bandPattern: BandPattern): Promise<ResistanceEvaluation> {
     const response = await fetch(`${API_BASE_URL}/evaluate`, {
       method: 'POST',
       headers: {
