@@ -1,0 +1,13 @@
+#   Git   #
+.git
+.gitignore
+
+#  Build Output  #
+node_modules
+dist
+
+#  Docs and local scratch  #
+README.md
+.temp
+.env
+.env.local

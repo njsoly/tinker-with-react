@@ -1,0 +1,17 @@
+## Building ##
+.gradle
+build
+
+## IDE ##
+.idea
+*.iml
+
+## Git ##
+.git
+.gitignore
+
+## Misc ##
+README.md
+
+# Project state
+.temp
