@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.scss'
 import { ResistorFun } from "./components/ResistorFun.tsx";
+import { OhmSymbolDisplay } from "./components/OhmSymbolDisplay.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +13,7 @@ function App() {
     <>
       <section id="center">
         <ResistorFun />
+        <OhmSymbolDisplay />
         <div className="ticks"></div>
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt=""/>
@@ -19,9 +21,9 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo"/>
         </div>
         <div>
-          <h1>Get started</h1>
+          <h1>Hello</h1>
           <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            Are we having fun yet?
           </p>
         </div>
         <button
