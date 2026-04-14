@@ -4,7 +4,7 @@ description: Necessary when key changes have been
 globs: 
 ---
 
-# Project Plan
+# Project Plan for tinker-with-react
 
 The overarching project here, `tinker-with-react`, should be ready to laurch by itself, out of the box.
 
