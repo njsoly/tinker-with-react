@@ -3,6 +3,7 @@ package org.njsoly.tinker.resistors.api
 import org.njsoly.tinker.resistors.core.ResistorEvaluationService
 import org.njsoly.tinker.resistors.domain.ResistorBandPattern
 import org.njsoly.tinker.resistors.domain.ResistorColor
+import org.njsoly.tinker.resistors.domain.ResistorConstants
 import org.njsoly.tinker.resistors.domain.ResistorDetails
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -17,9 +18,13 @@ class ResistorController(private val resistorEvaluationService: ResistorEvaluati
         return ResistorColor.entries
     }
 
+    /**
+     * Mostly meant as a sanity check for the API
+     * @return the omega symbol, for ohms
+     */
     @GetMapping("/ohm-symbol")
     fun getOhmSymbol(): String {
-        return "\u2126"
+        return ResistorConstants.OHM_SYMBOLS[0]
     }
 
     @PostMapping("/evaluate")

@@ -10,3 +10,8 @@ springdoc:
     enabled: true
   api-docs:
     enabled: true
+
+cors:
+  allowed-origins:
+    - http://localhost:5173
+    - http://localhost:5174
