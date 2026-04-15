@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { resistorService } from '../services/resistorService';
+import { resistorApiService } from '../services/resistorApiService.ts';
 
 export function OhmSymbolDisplay() {
   const [ohmSymbol, setOhmSymbol] = useState<string>('');
@@ -10,7 +10,7 @@ export function OhmSymbolDisplay() {
     const fetchOhmSymbol = async () => {
       try {
         setLoading(true);
-        const symbol = await resistorService.getOhmSymbol();
+        const symbol = await resistorApiService.getOhmSymbol();
         setOhmSymbol(symbol);
         setError(null);
       } catch (err) {
