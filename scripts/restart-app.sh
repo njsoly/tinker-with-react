@@ -31,17 +31,17 @@ fi
 SERVICE=$1
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-cd "$PROJECT_ROOT"
+cd "${PROJECT_ROOT}"
 
-echo "→ Stopping $SERVICE..."
-docker compose stop "$SERVICE"
+echo "→ Stopping ${SERVICE}..."
+docker compose stop "${SERVICE}"
 
-echo "→ Rebuilding $SERVICE..."
-docker compose build "$SERVICE"
+echo "→ Rebuilding ${SERVICE}..."
+docker compose build --no-cache "${SERVICE}"
 
-echo "→ Starting $SERVICE..."
-docker compose up -d "$SERVICE"
+echo "→ Starting ${SERVICE}..."
+docker compose up -d "${SERVICE}"
 
-echo "✓ $SERVICE restarted successfully!"
+echo "✓ ${SERVICE} restarted successfully!"
 echo ""
-echo "View logs with: docker compose logs -f $SERVICE"
+echo "View logs with: docker compose logs -f ${SERVICE}"

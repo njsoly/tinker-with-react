@@ -13,7 +13,6 @@ set -e
 #
 # OPTIONS:
 #   -h, --help          Show this help message
-#   --rebuild           Force rebuild of all custom containers
 #
 ################################################################################
 
@@ -23,17 +22,11 @@ show_help() {
     sed -n '/^# USAGE:/,/^################################################################################$/p' "$0" | sed 's/^# //;s/^#//'
 }
 
-REBUILD=false
-
 while [[ $# -gt 0 ]]; do
     case $1 in
         -h|--help)
             show_help
             exit 0
-            ;;
-        --rebuild)
-            REBUILD=true
-            shift
             ;;
         *)
             echo "Unknown option: $1"
@@ -43,19 +36,14 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-cd "$PROJECT_ROOT"
+cd "${PROJECT_ROOT}"
 
 echo "→ Pulling external service images..."
 # Pull with full registry paths to avoid interactive prompts
 docker pull docker.io/postgres:17-alpine 2>/dev/null || true
 docker pull docker.io/localstack/localstack:latest 2>/dev/null || true
 
-if [ "$REBUILD" = true ]; then
-    echo "→ Rebuilding all custom application containers..."
-    docker compose build --no-cache
-else
-    echo "→ Building custom application containers (if needed)..."
-    docker compose build
-fi
+echo "→ Building custom application containers..."
+docker compose build --no-cache
 
 echo "✓ Docker orchestration complete!"
