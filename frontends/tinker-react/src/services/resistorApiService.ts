@@ -3,7 +3,7 @@ import type { ColorInfo, BandPattern, ResistanceEvaluation } from '../types';
 
 const API_BASE_URL = config.resistorsApiUrl;
 
-export const resistorService = {
+export const resistorApiService = {
   async getOhmSymbol(): Promise<string> {
     const response = await fetch(`${API_BASE_URL}/ohm-symbol`);
     if (!response.ok) {
