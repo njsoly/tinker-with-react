@@ -4,18 +4,6 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/backend" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/backend" />
-            <option value="$PROJECT_DIR$/backend/portfolio-api" />
-            <option value="$PROJECT_DIR$/backend/portfolio-domain" />
-            <option value="$PROJECT_DIR$/backend/trading-api" />
-            <option value="$PROJECT_DIR$/backend/trading-domain" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/backends/resistors" />
         <option name="modules">
           <set>
