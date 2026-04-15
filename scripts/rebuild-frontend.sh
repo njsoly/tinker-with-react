@@ -8,12 +8,8 @@ SERVICE_NAME="tinker-react"
 
 show_help() {
     cat << EOF
-Usage: $(basename "$0") [OPTIONS]
 
 Rebuild and restart the tinker-react frontend container.
-
-OPTIONS:
-    -h, --help       Show this help message
 
 
 EOF
