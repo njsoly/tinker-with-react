@@ -21,9 +21,12 @@ set -e
 #
 ################################################################################
 
-PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+pushd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null
+PROJECT_ROOT="$(pwd)"
 STATE_DIR="$PROJECT_ROOT/.temp"
 STATE_FILE="$STATE_DIR/state.yaml"
+
+trap 'popd > /dev/null' EXIT
 
 show_help() {
     sed -n '/^# USAGE:/,/^################################################################################$/p' "$0" | sed 's/^# //;s/^#//'
@@ -33,8 +36,9 @@ big_echo() {
     local message="$1"
     local msg_len=${#message}
     local total_width=$((msg_len + 12))
-    local border=$(printf '═%.0s' $(seq 1 $total_width))
-    local padded_msg=$(printf "%*s%s%*s" 6 "" "$message" 6 "")
+    local border padded_msg
+    border=$(printf '═%.0s' $(seq 1 $total_width))
+    padded_msg=$(printf "%*s%s%*s" 6 "" "$message" 6 "")
 
     echo ""
     echo "$border"

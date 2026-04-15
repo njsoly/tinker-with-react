@@ -61,13 +61,6 @@ build_gradle_project() {
 
     echo "→ Building $project_name..."
     cd "$project_path"
-
-    if [ "$SKIP_DEPS" = false ]; then
-        echo "  • Updating dependencies..."
-        ./gradlew dependencies --quiet || true
-    fi
-
-    echo "  • Compiling and packaging..."
     ./gradlew clean build -x test
 
     echo "  ✓ $project_name built successfully"

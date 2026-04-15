@@ -21,7 +21,7 @@ services:
   localstack:
     image: docker.io/localstack/localstack:latest
     container_name: tinker-localstack
-    restart: unless-stopped
+    restart: no
     environment:
       - SERVICES=s3,dynamodb,sqs,sns
       - DEBUG=1
@@ -57,7 +57,7 @@ services:
       context: ./backends/trading
       dockerfile: Dockerfile
     container_name: trading-api
-    restart: unless-stopped
+    restart: no # TODO: change to unless-stopped when fixed
     ports:
       - "8082:8082"
     environment:
