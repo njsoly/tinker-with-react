@@ -12,8 +12,8 @@ set -e
 #   ./scripts/restart-app.sh <service-name>
 #
 # EXAMPLES:
-#   ./scripts/restart-app.sh resistors
-#   ./scripts/restart-app.sh trading
+#   ./scripts/restart-app.sh resistors-api
+#   ./scripts/restart-app.sh trading-api
 #   ./scripts/restart-app.sh tinker-react
 #
 ################################################################################
@@ -22,8 +22,8 @@ if [ $# -eq 0 ]; then
     echo "Usage: $0 <service-name>"
     echo ""
     echo "Available services:"
-    echo "  - resistors"
-    echo "  - trading"
+    echo "  - resistors-api"
+    echo "  - trading-api"
     echo "  - tinker-react"
     exit 1
 fi
