@@ -5,7 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.scss'
 import { ResistorFun } from "./components/ResistorFun.tsx";
 import { OhmSymbolDisplay } from "./components/OhmSymbolDisplay.tsx";
-import { Canvassy } from "./components/Canvassy.tsx";
+import { DrawringzA } from "./components/DrawringzA.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +16,7 @@ function App() {
         <ResistorFun />
         <OhmSymbolDisplay />
         <div className="ticks"></div>
-        <Canvassy />
+        <DrawringzA />
         <div className="ticks"></div>
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt=""/>

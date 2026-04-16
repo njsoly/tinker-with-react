@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ResistorColor } from "../types";
 import { ResistorDisplay } from "./ResistorDisplay.tsx";
 
+import "./ResistorFun.scss";
+
 interface ResistorColorSelectProps {
   name: string;
   value: string;
