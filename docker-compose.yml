@@ -25,6 +25,7 @@ services:
       retries: 5
 
   localstack:
+    disable: true # need to figure out to do with this thing
     image: docker.io/localstack/localstack:latest
     container_name: tinker-localstack
     restart: no
@@ -59,6 +60,7 @@ services:
       retries: 3
 
   trading-api:
+    disable: true # TODO: this is currently meaningless and/or busted
     build:
       context: ./backends/trading
       dockerfile: Dockerfile
