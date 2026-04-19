@@ -2,23 +2,22 @@ package org.njsoly.tinker.resistors.core
 
 import org.njsoly.tinker.resistors.domain.ResistorBandPattern
 import org.njsoly.tinker.resistors.domain.ResistorColor
-import org.njsoly.tinker.resistors.domain.ResistorDetails
+import org.njsoly.tinker.resistors.domain.ResistanceDetail
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
 
 @Service
 class ResistorEvaluationService {
 
-    fun evaluateResistance(resistorBandPattern: ResistorBandPattern): ResistorDetails {
+    fun evaluateResistance(resistorBandPattern: ResistorBandPattern): ResistanceDetail {
         validatePattern(resistorBandPattern)
 
         val significand = (10 * resistorBandPattern.band0.significandValue) + resistorBandPattern.band1.significandValue
         // TODO handle 5 band resistors
 
-        return ResistorDetails(
+        return ResistanceDetail(
             value = BigDecimal(significand) * (resistorBandPattern.band2.magnitudeMultiplier),
-            engineeringNotation = "",
-            bandPattern = resistorBandPattern
+            engineeringNotation = ""
         )
     }
 
