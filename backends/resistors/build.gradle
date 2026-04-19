@@ -38,6 +38,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-restclient-test'
     testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
+    testImplementation 'io.mockk:mockk:1.13.14'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
@@ -49,4 +50,34 @@ kotlin {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.register('unitTest', Test) {
+    description = 'Runs unit tests only (excludes integration tests)'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        excludeTags 'integration'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = false
+    }
+    shouldRunAfter tasks.named('test')
+}
+
+tasks.register('integrationTest', Test) {
+    description = 'Runs integration tests only'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'integration'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = false
+    }
+    shouldRunAfter tasks.named('test')
 }

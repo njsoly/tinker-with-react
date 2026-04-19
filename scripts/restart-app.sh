@@ -44,4 +44,3 @@ docker compose up -d "${SERVICE}"
 
 echo "✓ ${SERVICE} restarted successfully!"
 echo ""
-echo "View logs with: docker compose logs -f ${SERVICE}"

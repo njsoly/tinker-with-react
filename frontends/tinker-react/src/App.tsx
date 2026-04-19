@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.scss'
 import { ResistorFun } from "./components/ResistorFun.tsx";
 import { OhmSymbolDisplay } from "./components/OhmSymbolDisplay.tsx";
@@ -14,7 +11,6 @@ function App() {
     <>
       <section id="center">
         <ResistorFun />
-        <OhmSymbolDisplay />
         <div className="ticks"></div>
         <DrawringzA />
         <div className="ticks"></div>
@@ -29,6 +25,7 @@ function App() {
             Are we having fun yet?
           </p>
         </div>
+        <OhmSymbolDisplay />
         <button
           className="counter"
           onClick={() => setCount((count) => count + 1)}

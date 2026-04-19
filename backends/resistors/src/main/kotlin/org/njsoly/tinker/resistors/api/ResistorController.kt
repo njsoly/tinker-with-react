@@ -4,7 +4,7 @@ import org.njsoly.tinker.resistors.core.ResistorEvaluationService
 import org.njsoly.tinker.resistors.domain.ResistorBandPattern
 import org.njsoly.tinker.resistors.domain.ResistorColor
 import org.njsoly.tinker.resistors.domain.ResistorConstants
-import org.njsoly.tinker.resistors.domain.ResistorDetails
+import org.njsoly.tinker.resistors.domain.ResistanceDetail
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -28,7 +28,7 @@ class ResistorController(private val resistorEvaluationService: ResistorEvaluati
     }
 
     @PostMapping("/evaluate")
-    fun getResistanceValue(@RequestBody resistorBandPattern: ResistorBandPattern): ResistorDetails {
+    fun getResistanceValue(@RequestBody resistorBandPattern: ResistorBandPattern): ResistanceDetail {
         return resistorEvaluationService.evaluateResistance(resistorBandPattern)
     }
 

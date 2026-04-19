@@ -1,7 +1,8 @@
 package org.njsoly.tinker.resistors.core.maths
 
 /**
- * A full expression of the measurable units, which can be as easy as [Time], as complex as [Power],
+ * A full expression of the measurable units, which can be as easy as [Time][Quantifiable.Time],
+ * as complex as power (TODO), and beyond.
  *
  */
 class Unit(
