@@ -1,24 +1,47 @@
 package org.njsoly.tinker.resistors.core
 
+import org.njsoly.tinker.resistors.core.maths.EngineeringUtils
+import org.njsoly.tinker.resistors.core.maths.MetricPrefix
 import org.njsoly.tinker.resistors.domain.ResistorBandPattern
 import org.njsoly.tinker.resistors.domain.ResistorColor
 import org.njsoly.tinker.resistors.domain.ResistanceDetail
 import org.springframework.stereotype.Service
 import java.math.BigDecimal
+import java.math.MathContext
 
 @Service
 class ResistorEvaluationService {
 
+    /**
+     * Base service call for /evaluate endpoint
+     *
+     * Currently only set up to handle four-band resistors.
+     */
     fun evaluateResistance(resistorBandPattern: ResistorBandPattern): ResistanceDetail {
         validatePattern(resistorBandPattern)
 
+        if (resistorBandPattern.band4 != null) {
+            throw IllegalArgumentException("5-band resistors are not supported.")
+        }
+
         val significand = (10 * resistorBandPattern.band0.significandValue) + resistorBandPattern.band1.significandValue
-        // TODO handle 5 band resistors
+        val resistanceValue = BigDecimal(significand) * (resistorBandPattern.band2.magnitudeMultiplier)
 
         return ResistanceDetail(
-            value = BigDecimal(significand) * (resistorBandPattern.band2.magnitudeMultiplier),
-            engineeringNotation = ""
+            value = resistanceValue,
+            engineeringNotation = getEngineeringNotation(resistanceValue),
+            tolerance = ResistorColor.entries.firstOrNull{ k -> resistorBandPattern.band3?.name == k.name }?.tolerancePercent
         )
+    }
+
+    fun getEngineeringNotation(resistanceValue: BigDecimal): String {
+        val prefix = EngineeringUtils.findBestPrefix(resistanceValue)
+        val value = resistanceValue.divide(prefix.multiplier, MathContext.DECIMAL64).stripTrailingZeros()
+        return if (prefix == MetricPrefix.BASE) {
+            value.toPlainString()
+        } else {
+            "${value.toPlainString()} ${prefix.shorthand}"
+        }
     }
 
     /**

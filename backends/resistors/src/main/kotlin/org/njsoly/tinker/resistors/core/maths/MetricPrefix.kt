@@ -2,15 +2,20 @@ package org.njsoly.tinker.resistors.core.maths
 
 import java.math.BigDecimal
 
-enum class MetricPrefix(val multiplier: BigDecimal, val shorthand: String) {
-    FEMTO(BigDecimal(1E-15), "f"),
-    PICO(BigDecimal(1E-12), "p"),
-    NANO(BigDecimal(1E-9), "n"),
-    MICRO(BigDecimal(1E-6), "u"),
-    MILLI(BigDecimal(1E-3), "m"),
-    BASE(BigDecimal(1), ""),
-    KILO(BigDecimal(1E3), "k"),
-    MEGA(BigDecimal(1E6), "M"),
-    GIGA(BigDecimal(1E9), "G"),
-    TERA(BigDecimal(1E12), "T"),
+enum class MetricPrefix(
+    /** Multiplicative modifier represented by the prefix, e.g. 1000 for kilo. */
+    val multiplier: BigDecimal,
+    /** Shorthand for the prefix, e.g. "k" for kilo. */
+    val shorthand: String
+) {
+    FEMTO(BigDecimal("1E-15"), "f"),
+    PICO(BigDecimal("1E-12"), "p"),
+    NANO(BigDecimal("1E-9"), "n"),
+    MICRO(BigDecimal("1E-6"), "u"),
+    MILLI(BigDecimal("1E-3"), "m"),
+    BASE(BigDecimal("1"), ""),
+    KILO(BigDecimal("1E3"), "k"),
+    MEGA(BigDecimal("1E6"), "M"),
+    GIGA(BigDecimal("1E9"), "G"),
+    TERA(BigDecimal("1E12"), "T"),
 }
