@@ -51,3 +51,33 @@ kotlin {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.register('unitTest', Test) {
+    description = 'Runs unit tests only (excludes integration tests)'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        excludeTags 'integration'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = false
+    }
+    shouldRunAfter tasks.named('test')
+}
+
+tasks.register('integrationTest', Test) {
+    description = 'Runs integration tests only'
+    group = 'verification'
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
+    useJUnitPlatform {
+        includeTags 'integration'
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = false
+    }
+    shouldRunAfter tasks.named('test')
+}

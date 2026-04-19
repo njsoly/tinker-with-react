@@ -3,6 +3,7 @@ package org.njsoly.tinker.resistors.api
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.mockk.every
 import io.mockk.mockk
+import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 import org.njsoly.tinker.resistors.core.ResistorEvaluationService
 import org.njsoly.tinker.resistors.domain.ResistanceDetail
@@ -19,6 +20,7 @@ import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 import java.math.BigDecimal
 
+@Tag("integration")
 @WebMvcTest(ResistorController::class)
 class ResistorControllerIntegrationTest {
 
