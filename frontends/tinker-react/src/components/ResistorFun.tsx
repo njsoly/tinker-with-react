@@ -3,6 +3,7 @@ import { ResistorColor } from "../types";
 import { ResistorDisplay } from "./ResistorDisplay.tsx";
 
 import "./ResistorFun.scss";
+import { motion } from "framer-motion";
 
 interface ResistorColorSelectProps {
   name: string;
@@ -44,9 +45,13 @@ export const ResistorFun = () => {
   };
 
   return (
-    <>
+    <div className="resistor-fun">
       <div>
-        <h1>Resistor Fun</h1>
+        <motion.h1
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.25 }}
+        >Resistor Fun
+        </motion.h1>
       </div>
       <div>
         <ResistorColorSelect
@@ -73,6 +78,6 @@ export const ResistorFun = () => {
       <div>
         <ResistorDisplay bands={bands} />
       </div>
-    </>
+    </div>
   );
 };
