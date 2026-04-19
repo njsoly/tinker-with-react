@@ -4,6 +4,8 @@ import org.njsoly.tinker.resistors.core.maths.Quantifiable.*
 
 /**
  * "Base" in the sense that they needn't be broken down any further.
+ *
+ * Representations of ways a [Quantifiable] can be measured.
  */
 enum class BaseUnit (
     val symbol: String,
