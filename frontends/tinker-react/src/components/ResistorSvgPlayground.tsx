@@ -1,4 +1,5 @@
 import Path, { Group, Polyline, Rect, RoundedRect, Svg } from 'react-svg-path';
+import { ResistorPathSvg } from "./ResistorPathSvg";
 export const ResistorSvgPlayground = () => {
   const width = 400;
   const height = 250;
@@ -9,6 +10,10 @@ export const ResistorSvgPlayground = () => {
 
   return (
     <section className="resistorSvgPlayground">
+      <div className="resistorPathSvg">
+        <ResistorPathSvg width={width} height={height} margin={padding} />
+      </div>
+
       <div>
         <Svg
           width={width}
@@ -60,7 +65,9 @@ export const ResistorSvgPlayground = () => {
            height={height}
            fill="tan"
            stroke="peachpuff">
+        <path>
 
+        </path>
 
       </Svg>
     </section>
