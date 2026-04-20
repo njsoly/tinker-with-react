@@ -1,15 +1,15 @@
-import './ResistorSvgPlayground.scss';
+import './SvgResistorDisplay.scss';
 
-export const ResistorSvgPlayground = () => {
-  const width = 400;
-  const height = 250;
-  // const padding = 10;
+export const SvgResistorDisplay = () => {
+  const [width, height] = [400, 250];
+  /** I decided that I didn't want to call this bandWidth.. */
+  const bandW = 20;
 
   return (
     <section className="resistorSvgPlayground">
       <div>
         <svg id="polylineSvg"
-             viewBox="0 0 400 250">
+             viewBox={`0 0 ${width} ${height}`}>
           <defs>
             <clipPath id="resistorBodyClip">
               <polyline
@@ -34,8 +34,8 @@ export const ResistorSvgPlayground = () => {
                 key={0}
                 x={80}
                 y={0}
-                width={20}
-                height={200}
+                width={bandW}
+                height={height}
                 fill="green"
                 clipPath="url(#resistorBodyClip)"
           />
