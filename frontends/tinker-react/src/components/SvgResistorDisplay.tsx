@@ -1,9 +1,9 @@
 import './SvgResistorDisplay.scss';
 
-export const SvgResistorDisplay = () => {
-  const [width, height] = [400, 250];
+export const SvgResistorDisplay = (
+  { width = 400, height = 250, bands = 4 }: { width?: number, height?: number, bands?: number }) => {
   /** I decided that I didn't want to call this bandWidth.. */
-  const bandW = 20;
+  const bandW = width / 20;
 
   return (
     <section className="resistorSvgPlayground">
@@ -15,9 +15,11 @@ export const SvgResistorDisplay = () => {
               <polyline
                 id="resistorBody"
                 points="
-                 50,100  50,60  55,55  85,55   90,57   95,60  110,65  290,65  305,60  310,57
-                315,55  345,55 350,60 350,100 350,144 345,147 315,147 310,145 305,142 290,137
-                110,137  95,142 90,145 85,147  55,147  50,142  50,100"
+                 45,70   50,60
+                 55,55   85,55   90,57   95,60  110,65  290,65  305,60  310,57
+                315,55  345,55  350,60  355,70  357,100 355,132 350,144 345,147
+                315,147 310,145 305,142 290,137
+                110,137  95,142  90,145  85,147  55,147  50,142 45,132   42, 100"
               />
             </clipPath>
           </defs>
@@ -30,15 +32,18 @@ export const SvgResistorDisplay = () => {
                 fill="tan"
                 clipPath="url(#resistorBodyClip)" />
 
-          <rect className="resistorBand"
-                key={0}
-                x={80}
-                y={0}
-                width={bandW}
-                height={height}
-                fill="green"
-                clipPath="url(#resistorBodyClip)"
-          />
+
+          {Array.from({ length: bands }, (_, i) => (
+            <rect className="resistorBand"
+                  key={i}
+                  x={(width / 5) + i * (bandW + (width / 10))}
+                  y={0}
+                  width={bandW}
+                  height={height}
+                  fill="green"
+                  clipPath="url(#resistorBodyClip)"
+            />
+          ))}
 
         </svg>
       </div>
