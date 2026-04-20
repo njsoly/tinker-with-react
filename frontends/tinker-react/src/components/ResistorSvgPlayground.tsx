@@ -1,4 +1,4 @@
-import { Group, Polyline, Rect, RoundedRect, Svg } from 'react-svg-path';
+import Path, { Group, Polyline, Rect, RoundedRect, Svg } from 'react-svg-path';
 export const ResistorSvgPlayground = () => {
   const width = 400;
   const height = 250;
@@ -14,31 +14,33 @@ export const ResistorSvgPlayground = () => {
           width={width}
           height={height}
           id="compositeShapesSvg">
-          <Group stroke={"tan"} fill={"tan"}>
-            <RoundedRect width={roundRectWidth}
+          <Group stroke={"peachpuff"} fill={"tan"}>
+            <Rect width={width - roundRectWidth*2 - leadDimensions[0]*2}
+                  height={roundRectHeight * 5/6}
+                  cx={width/2}
+                         
+                  cy={height * 2/5}/>
+            <RoundedRect id="leftLump"
+                         width={roundRectWidth}
                          height={roundRectHeight}
                          cx={roundRectWidth + padding + leadDimensions[0]}
                          cy={height * 2/5}
                          radius={25}/>
-            <RoundedRect width={roundRectWidth}
+            <RoundedRect id="rightLump"
+                         width={roundRectWidth}
                          height={roundRectHeight}
                          cx={width - (roundRectWidth + padding) - leadDimensions[0]}
                          cy={height * 2/5}
                          radius={25}/>
-            <Rect width={width - roundRectWidth*2 - leadDimensions[0]*2}
-                  height={roundRectHeight * 5/6}
-                  cx={width/2}
-                  cy={height * 2/5}/>
           </Group>
         </Svg>
       </div>
 
       <div>
         <Svg id="polylineSvg"
-             width={400}
-             height={250}
-             fill="tan"
-             stroke="cyan">
+             width={width}
+             height={height}
+             fill="tan">
           <Polyline
             points={[
               [50, 100], [50, 60], [55, 55], [85, 55], [90, 57], [95, 60], [110, 65],
@@ -52,6 +54,15 @@ export const ResistorSvgPlayground = () => {
 
         </Svg>
       </div>
+
+      <Svg id="pathSvg"
+           width={width}
+           height={height}
+           fill="tan"
+           stroke="peachpuff">
+
+
+      </Svg>
     </section>
   );
 };
