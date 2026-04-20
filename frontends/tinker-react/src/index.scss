@@ -109,3 +109,9 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+canvas, svg {
+  border: 1px solid var(--border);
+  max-width: 50vw;
+  height: 100%;
+}

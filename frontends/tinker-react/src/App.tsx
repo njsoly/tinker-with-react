@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.scss'
 import { ResistorFun } from "./components/ResistorFun.tsx";
 import { OhmSymbolDisplay } from "./components/OhmSymbolDisplay.tsx";
-import { DrawringzA } from "./components/DrawringzA.tsx";
+import { ResistorSvgPlayground } from "./components/ResistorSvgPlayground.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +12,7 @@ function App() {
       <section id="center">
         <ResistorFun />
         <div className="ticks"></div>
-        <DrawringzA />
+        <ResistorSvgPlayground />
         <div className="ticks"></div>
         <div>
           <h1>Hello</h1>
