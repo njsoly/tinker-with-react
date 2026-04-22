@@ -2,6 +2,10 @@
 
 A polyglot monorepo demonstrating full-stack development with multiple backends (Spring Boot/Kotlin) and frontends (React/TypeScript), all containerized and ready to run out of the box.
 
+___Warning:__ there are many scripts that promise fancy things below, and they are falling into disrepair._\
+_I run the `tinker-react` frontend with `npm run dev`, and then the `resistors-api` backend via IntelliJ._
+
+
 ## Quick Start
 
 **Get everything running in one command:**
