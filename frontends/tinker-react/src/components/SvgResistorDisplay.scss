@@ -1,0 +1,16 @@
+svg {
+  stroke-width: 2;
+  stroke: peachpuff;
+  fill: tan;
+  width: 100%;
+  height: auto;
+
+  .resistorBand {
+    stroke: black;
+  }
+}
+
+#polylineSvg {
+  width: 100%;
+  height: auto;
+}
