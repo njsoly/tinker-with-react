@@ -9,7 +9,7 @@ export const ResistorColor = {
   Violet: { name: 'Violet', css: '#8B00FF' },
   Gray: { name: 'Gray', css: '#808080' },
   White: { name: 'White', css: '#FFFFFF' },
-  Gold: { name: 'Gold', css: '#FFD700' },
+  Gold: { name: 'Gold', css: '#9D8842FF' },
   Silver: { name: 'Silver', css: '#C0C0C0' },
 } as const;
 
