@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ResistorColor } from "../types";
-import { ResistorDisplay } from "./ResistorDisplay.tsx";
 
 import "./ResistorFun.scss";
 import { motion } from "framer-motion";
@@ -77,9 +76,7 @@ export const ResistorFun = () => {
         />
       </div>
       <div>
-        <ResistorDisplay bands={bands} />
         <SvgResistorDisplay bands={bands} />
-
       </div>
     </div>
   );

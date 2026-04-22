@@ -2,7 +2,6 @@ import { useState } from 'react'
 import './App.scss'
 import { ResistorFun } from "./components/ResistorFun.tsx";
 import { OhmSymbolDisplay } from "./components/OhmSymbolDisplay.tsx";
-import { SvgResistorDisplay } from "./components/SvgResistorDisplay.tsx";
 
 function App() {
   const [count, setCount] = useState(0)
