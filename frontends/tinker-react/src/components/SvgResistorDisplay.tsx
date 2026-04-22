@@ -1,7 +1,14 @@
 import './SvgResistorDisplay.scss';
+import { ResistorColor } from "../types";
+
+interface ResistorDisplayProps {
+  width?: number,
+  height?: number,
+  bands: ResistorColor[];
+}
 
 export const SvgResistorDisplay = (
-  { width = 400, height = 250, bands = 4 }: { width?: number, height?: number, bands?: number }) => {
+  { width = 400, height = 250, bands = [] }: ResistorDisplayProps) => {
   /** I decided that I didn't want to call this bandWidth.. */
   const bandW = width / 20;
 
@@ -33,14 +40,14 @@ export const SvgResistorDisplay = (
                 clipPath="url(#resistorBodyClip)" />
 
 
-          {Array.from({ length: bands }, (_, i) => (
+          {Array.from({ length: bands.length }, (_, i) => (
             <rect className="resistorBand"
                   key={i}
                   x={(width / 5) + i * (bandW + (width / 10))}
                   y={0}
                   width={bandW}
                   height={height}
-                  fill="green"
+                  fill={bands[i].css}
                   clipPath="url(#resistorBodyClip)"
             />
           ))}

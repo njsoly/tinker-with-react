@@ -12,8 +12,6 @@ function App() {
       <section id="center">
         <ResistorFun />
         <div className="ticks"></div>
-        <SvgResistorDisplay />
-        <div className="ticks"></div>
         <div>
           <h1>Hello</h1>
           <p>

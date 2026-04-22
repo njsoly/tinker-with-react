@@ -4,6 +4,7 @@ import { ResistorDisplay } from "./ResistorDisplay.tsx";
 
 import "./ResistorFun.scss";
 import { motion } from "framer-motion";
+import { SvgResistorDisplay } from "./SvgResistorDisplay.tsx";
 
 interface ResistorColorSelectProps {
   name: string;
@@ -77,6 +78,8 @@ export const ResistorFun = () => {
       </div>
       <div>
         <ResistorDisplay bands={bands} />
+        <SvgResistorDisplay bands={bands} />
+
       </div>
     </div>
   );
