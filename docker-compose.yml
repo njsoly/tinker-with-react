@@ -92,6 +92,20 @@ services:
       - ./frontends/tinker-react:/app:z
       - /app/node_modules
 
+  otel-lgtm:
+    image: docker.io/grafana/otel-lgtm:latest
+    container_name: otel-lgtm
+    restart: unless-stopped
+    ports:
+      - "3000:3000"   # Grafana UI
+      - "4317:4317"   # OTLP gRPC receiver
+      - "4318:4318"   # OTLP HTTP receiver
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+    volumes:
+      - otel_data:/data
+
 volumes:
   postgres_data:
   localstack_data:
+  otel_data:
