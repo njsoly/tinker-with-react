@@ -32,3 +32,4 @@ material_theme_project_new.xml
 
 # Project state
 .temp/
+.idea/awsToolkit.xml
