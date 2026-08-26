@@ -24,4 +24,7 @@ enum class BaseUnit (
     OHM("Ω", "ohm", Resistance),
     AMPERE("A", "ampere", ElectricCurrent),
     VOLT("V", "volt", PotentialDifference),
+    COULOMB("C", "coulomb", ElectricCharge),
+    WATT("W", "watt", Power),
+    JOULE("J", "joule", Energy),
 }
